@@ -13,15 +13,7 @@ app.use(express.json());
 
 app.use("/doc-api", swaggerUi.serve, swaggerUi.setup(SwaggerDocs))
 
-const FRONTEND_URL = process.env.FRONTEND_URL || ""
-const GERENCIADOR_URL = process.env.GERENCIADOR_URL || ""
-
-
-app.use(cors({
-    origin: [FRONTEND_URL, GERENCIADOR_URL],
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials: true,
-}));
+app.use(cors());
 
 app.use(routes);
 
